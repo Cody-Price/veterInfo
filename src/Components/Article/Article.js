@@ -3,13 +3,18 @@ import './Article.scss'
 
 const Article = ({article}) => {
   return (
-    <article className='article'>
-      <img src={article.imagePath} alt={article.description} className="article-image" />
-      <h3>{article.title}</h3>
-      <h5>By: {article.author}</h5>
-      <p>{article.content}</p>
-      <p>{article.date}</p>
-    </article>
+    <a href={article.url} className='article'>
+      <article>
+        <img src={article.imagePath} alt={article.description} className="article-image" />
+        <div className="content">
+          <h3 className="article-line">{article.title}</h3>
+          <h5 className="article-line">{article.author ? `By:  ${article.author}` : null}</h5>
+          <p className="article-line">{article.content || article.description}</p>
+          <p className="article-line">{article.date}</p>
+          <p className="article-line">{article.source}</p>
+        </div>
+      </article>
+    </a>
   )
 }
 

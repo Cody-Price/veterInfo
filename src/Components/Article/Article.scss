@@ -1,3 +1,48 @@
 .article {
-  border: 2px solid green;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 92%;
+  height: 200px;
+  margin: 15px 0;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: scale(1.04);
+    transition-duration: 0.3s;
+  }
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  top: -15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-overflow: ellipsis;
+}
+
+.article-line {
+  margin: 6px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.article-image {
+  height: 230px;
+  width: 275px;
+  display: block;
+  float: left;
+  border-right: 2px solid black;
+  margin-right: 10px;
 }

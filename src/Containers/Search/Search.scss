@@ -1,6 +1,76 @@
-.search-div {
+@import url('https://fonts.googleapis.com/css?family=Faster+One');
+
+.header {
   width: 100%;
-  border: solid red 2px;
-  height: 10vh;
+  height: 12vh;
+  width: 85vw;
   z-index: -1;
+  position: fixed;
+  left: 15vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 0px 20px 10px white;
+}
+
+h1 {
+  font-family: 'Faster One', 'Times New Roman', Times, serif;
+  font-size: 3em;
+  color: #172353;
+  margin-top: 45px;
+}
+
+.red {
+  color: rgb(201, 34, 45);
+  margin-right: 7px;
+}
+
+.search-div {
+  width: 50%;
+  position: relative;
+  top: -37px;
+  left: -5px;
+}
+
+.search-input {
+  width: 80%;
+  border: 2px solid #172353;
+  margin: 10px 0 10px 10px;
+  height: 20px;
+  border-radius: 10px 0 0 10px;
+  border-right: solid black 1px;
+}
+
+button {
+  height: 26px;
+  border: 2px solid rgb(201, 34, 45);
+  border-left: black solid 1px;
+  border-radius: 0 10px 10px 0;
+  color: rgb(201, 34, 45);
+  position: relative;
+  top: -1px;
+  width: 80px;
+
+  &:hover {
+    background-color: rgb(201, 34, 45);
+    color: white;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.flag {
+  width: 60px;
+  position: relative;
+  top: 10px;
+}
+
+.left-flag {
+  transform: scaleX(-1);
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Search.scss'
+import flag from '../../assets/flag-gif.gif'
 
 class Search extends Component {
   constructor() {
@@ -25,17 +26,21 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="search-div">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="search"
-            value={this.state.search}
-            onChange={this.handleChange}
-          />
-          <button>Search</button>
-        </form>
-      </div>
+      <header className="header">
+        <h1><img src={flag} alt="flag" className="flag left-flag" /><span className="red">Veter</span>Informant<img src={flag} alt="flag" className="flag" /></h1>
+        <div className="search-div">
+          <form onSubmit={this.handleSubmit} className="search-form">
+            <input
+              type="text"
+              name="search"
+              value={this.state.search}
+              onChange={this.handleChange}
+              className="search-input"
+            />
+            <button>Search</button>
+          </form>
+        </div>
+      </header>
     )
   }
 }

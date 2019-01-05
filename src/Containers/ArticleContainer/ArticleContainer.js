@@ -9,8 +9,8 @@ const ArticleContainer = (props) => {
   })
   return (
     <div className="article-container">
-      article container
       { displayedArticles }
+      <button>Next Page</button>
     </div>
   )
 }
