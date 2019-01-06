@@ -1,11 +1,12 @@
 import React from 'react'
 import './Article.scss'
+import militaryPicture from '../../assets/military.jpg'
 
 const Article = ({article}) => {
   return (
     <a href={article.url} className='article'>
       <article>
-        <img src={article.imagePath} alt={article.description} className="article-image" />
+        <img src={article.imagePath || militaryPicture} alt={article.description} className="article-image" />
         <div className="content">
           <h3 className="article-line">{article.title}</h3>
           <h5 className="article-line">{article.author ? `By:  ${article.author}` : null}</h5>
@@ -13,6 +14,7 @@ const Article = ({article}) => {
           <p className="article-line">{article.date}</p>
           <p className="article-line">{article.source}</p>
         </div>
+        <button className="favorite-btn">SAVE</button>
       </article>
     </a>
   )

@@ -9,10 +9,18 @@
   left: 15vw;
   background-color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   box-shadow: 5px 0px 20px 10px white;
+}
+
+.logo-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
 }
 
 h1 {
@@ -28,14 +36,13 @@ h1 {
 }
 
 .search-div {
-  width: 50%;
+  width: 60%;
   position: relative;
-  top: -37px;
-  left: -5px;
+  top: -40px;
 }
 
 .search-input {
-  width: 80%;
+  width: 60%;
   border: 2px solid #172353;
   margin: 10px 0 10px 10px;
   height: 20px;
@@ -52,10 +59,17 @@ button {
   position: relative;
   top: -1px;
   width: 80px;
+  transition-duration: 0.3s;
 
   &:hover {
     background-color: rgb(201, 34, 45);
     color: white;
+    transition-duration: 0.3s;
+    border-color: #172353;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
@@ -73,4 +87,51 @@ a {
 
 .left-flag {
   transform: scaleX(-1);
+}
+
+.search-input {
+  transition-duration: 0.3s;
+  padding-left: 10px;
+  
+  &:focus {
+    transform: scaleY(1.1);
+    outline: none;
+    transition-duration: 0.3s;
+  }
+
+  &:focus + button {
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+  }
+}
+
+.search-form button {
+  &:active {
+    background-color: black;
+    color: white;
+  }
+}
+
+.nav-btn {
+  border: 2px solid #172353;
+  border-radius: 5px;
+  color: #172353;
+  width: 80px;
+  font-size: 8px;
+  position: relative;
+  top: 5px;
+  height: 20px;
+  font-weight: bold;
+
+  &:active {
+    background-color: black;
+  }
+}
+
+.nav-left {
+  border-radius: 20px 8px 8px 20px;
+}
+
+.nav-right {
+  border-radius: 8px 20px 20px 8px;
 }

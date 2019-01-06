@@ -1,0 +1,52 @@
+.nav {
+  height: 99.5vh;
+  position: fixed;
+  border: #172353 solid 2px;
+  width: 15vw;
+  background-color: #172353;
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+label {
+  color: white;
+  display: block;
+  text-align: left;
+}
+
+.date {
+  border-radius: 5px;
+  width: 175px;
+}
+
+.filter-btn {
+  border: 2px solid #4b9bff;
+  color: #172353;
+  border-radius: 10px;
+  width: 175px;
+  font-size: 14px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #4b9bff;
+    border-color: white;
+    color: white;
+  }
+
+  &:active {
+    background-color: black;
+    transition-duration: 0s;
+    transform: scale(0.9);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+select {
+  width: 175px;
+}
