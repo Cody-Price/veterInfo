@@ -1,5 +1,5 @@
 import apiKey from '../utilities/apiKey'
-import { isLoading } from '../actions/index'
+import { isLoading, hasErrored } from '../actions/index'
 import { addSourcesToStore } from '../actions/index'
 
 const fetchSources = () => {
@@ -21,7 +21,7 @@ const fetchSources = () => {
       })
       dispatch(addSourcesToStore(sources))
     } catch(error) {
-      console.log(error.message)
+      dispatch(hasErrored(error.message))
     }
   }
 }
