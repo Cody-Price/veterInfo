@@ -1,12 +1,11 @@
 import apiKey from '../utilities/apiKey'
-import { isLoading } from '../actions/index'
+import { isLoading, hasErrored } from '../actions/index'
 import { cleanArticles } from '../utilities/helper/helper'
 import { addArticlesToStore } from '../actions/index'
 
 const fetchRecentHeadlines = (page) => {
   const navPage = page || 1
   const url = `https://newsapi.org/v2/everything?q=+veterans AND military&page=${navPage}&apiKey=${apiKey}`
-  console.log(url);
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
@@ -19,7 +18,7 @@ const fetchRecentHeadlines = (page) => {
       const cleanedArticles = cleanArticles(results)
       dispatch(addArticlesToStore(cleanedArticles))
     } catch(error) {
-      console.log(error.message)
+      dispatch(hasErrored(error.message))
     }
   }
 }

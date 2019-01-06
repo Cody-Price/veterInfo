@@ -24,3 +24,10 @@ export const removeArticlesFromStore = () => {
     type: 'REMOVE_ARTICLES_FROM_STORE'
   }
 }
+
+export const hasErrored = (error) => {
+  return {
+    type: 'HAS_ERRORED',
+    error
+  }
+}

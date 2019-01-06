@@ -17,7 +17,6 @@ class Header extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // this.resetState()
     this.props.removeArticlesFromStore()
     this.props.fetchSearchedHeadlines(this.state.search, this.state.pageNumber)
   }
