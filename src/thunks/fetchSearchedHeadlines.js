@@ -3,9 +3,9 @@ import { isLoading } from '../actions/index'
 import { cleanArticles } from '../utilities/helper/helper'
 import { addArticlesToStore } from '../actions/index'
 
-const fetchRecentHeadlines = (page) => {
+const fetchSearchedHeadlines = (search, page) => {
   const navPage = page || 1
-  const url = `https://newsapi.org/v2/everything?q=+veterans AND military&page=${navPage}&apiKey=${apiKey}`
+  const url = `https://newsapi.org/v2/everything?q=+veterans AND military AND +${search}&page=${navPage}&apiKey=${apiKey}`
   console.log(url);
   return async (dispatch) => {
     try {
@@ -24,4 +24,4 @@ const fetchRecentHeadlines = (page) => {
   }
 }
 
-export default fetchRecentHeadlines
+export default fetchSearchedHeadlines

@@ -11,3 +11,16 @@ export const addArticlesToStore = (articles) => {
     articles
   }
 }
+
+export const addSourcesToStore = (sources) => {
+  return {
+    type: 'ADD_SOURCES_TO_STORE',
+    sources
+  }
+}
+
+export const removeArticlesFromStore = () => {
+  return {
+    type: 'REMOVE_ARTICLES_FROM_STORE'
+  }
+}
