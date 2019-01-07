@@ -8,7 +8,8 @@ export const cleanArticles = (dirtyArticles) => {
       date: cleanDate(article.publishedAt),
       source: article.source.name,
       url: article.url,
-      imagePath: article.urlToImage
+      imagePath: article.urlToImage,
+      favorite: false
     }
   })
 }

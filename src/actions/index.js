@@ -31,3 +31,24 @@ export const hasErrored = (error) => {
     error
   }
 }
+
+export const addFilterToStore = (filter) => {
+  return {
+    type: 'ADD_FILTER_TO_STORE',
+    filter
+  }
+}
+
+export const addFavoriteToStore = (favorite) => {
+  return {
+    type: 'ADD_FAVORITE_TO_STORE',
+    favorite
+  }
+}
+
+export const removeFavoriteFromStore = (favorite) => {
+  return {
+    type: 'REMOVE_FAVORITE_FROM_STORE',
+    favorite
+  }
+}

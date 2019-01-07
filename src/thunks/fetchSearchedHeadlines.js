@@ -4,13 +4,15 @@ import { cleanArticles } from '../utilities/helper/helper'
 import { addArticlesToStore } from '../actions/index'
 
 const fetchSearchedHeadlines = (search, page, filter) => {
-  const cleanSearch = clean(search)
+  console.log('filter:', filter)
+  const searchString = cleanSearch(search)
   const filterSearch = cleanFilter(filter)
   const source = cleanSource(filter)
-  const dateFrom = cleanDate(filter)
-  const dateTo = cleanDate(filter)
+  const dateFrom = cleanFromDate(filter) || ''
+  const dateTo = cleanToDate(filter) || ''
   const navPage = page || 1
-  const url = `https://newsapi.org/v2/everything?q=${cleanSearch}+veterans AND ${filterSearch}military${source}${dateFrom}${dateTo}&page=${navPage}&apiKey=${apiKey}`
+  const url = `https://newsapi.org/v2/everything?q=${searchString}+veterans AND ${filterSearch}military${source}${dateFrom}${dateTo}&page=${navPage}&apiKey=${apiKey}`
+  console.log(url)
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
@@ -30,7 +32,7 @@ const fetchSearchedHeadlines = (search, page, filter) => {
 
 const cleanFilter = (filter) => {
   let filterString = ''
-  if (filter === undefined) {
+  if (!filter) {
     return ''
   } else {
     if (filter.topicSelect) {
@@ -69,11 +71,18 @@ const cleanSource = (filter) => {
   }
 }
 
-const cleanDate = (filter) => {
+const cleanFromDate = (filter) => {
   if (filter) {
     if (filter.dateFromSelect) {
       return `&from=${filter.dateFromSelect}`
     }
+  } else {
+    return ''
+  }
+}
+
+const cleanToDate = (filter) => {
+  if (filter) {
     if (filter.dateToSelect) {
       return `&to=${filter.dateToSelect}`
     }
@@ -82,8 +91,8 @@ const cleanDate = (filter) => {
   }
 }
 
-const clean = (search) => {
-  if (search === undefined) {
+const cleanSearch = (search) => {
+  if (!search) {
     return ''
   } else {
     return `+"${search.replace(' ', '%20')}" AND`
