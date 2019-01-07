@@ -26,16 +26,12 @@ class Header extends Component {
     this.setState({[name]: value})
   }
 
-  resetState = () => {
-    this.setState({search: ''})
-  }
-
   incrementPage = async () => {
     this.props.removeArticlesFromStore()
     let newPage = this.state.pageNumber + 1
     await this.setState({pageNumber: newPage})
-    if (this.state.search) {
-      this.props.fetchSearchedHeadlines(this.state.search, this.state.pageNumber)
+    if (this.state.search || this.props.filter) {
+      this.props.fetchSearchedHeadlines(this.state.search, this.state.pageNumber, this.props.filter)
     } else {
       this.props.fetchRecentHeadlines(this.state.pageNumber)
     }
@@ -50,12 +46,18 @@ class Header extends Component {
     }
   }
 
+  navToHome = () => {
+    this.props.removeArticlesFromStore()
+    this.props.fetchRecentHeadlines()
+  }
+
   render() {
     return (
       <header className="header">
         <button className="nav-btn nav-left" onClick={this.decrementPage}>PREVIOUS</button>
         <div className="logo-search">
-          <h1><img src={flag} alt="flag" className="flag left-flag" /><span className="red">Veter</span>Informant<img src={flag} alt="flag" className="flag" /></h1>
+          <h1 onClick={this.navToHome}><img src={flag} alt="flag" className="flag left-flag" /><span className="red">Veter</span>Informant<img src={flag} alt="flag" className="flag" /></h1>
+          <p className="slogan">'Keeping the first ammendment in the hands of those who defended it'</p>
           <div className="search-div">
             <form onSubmit={this.handleSubmit} className="search-form">
               <input
@@ -75,10 +77,14 @@ class Header extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  filter: state.filter
+})
+
 const mapDispatchToProps = (dispatch) => ({
   fetchRecentHeadlines: (page) => dispatch(fetchRecentHeadlines(page)),
   removeArticlesFromStore: () => dispatch(removeArticlesFromStore()),
-  fetchSearchedHeadlines: (search, page) => dispatch(fetchSearchedHeadlines(search, page))
+  fetchSearchedHeadlines: (search, page, filter) => dispatch(fetchSearchedHeadlines(search, page, filter))
 })
 
-export default connect(null, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

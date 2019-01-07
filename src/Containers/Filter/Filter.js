@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Filter.scss'
 import { connect } from 'react-redux'
 import fetchSearchedHeadlines from '../../thunks/fetchSearchedHeadlines'
-import { removeArticlesFromStore } from '../../actions/index'
+import { removeArticlesFromStore, addFilterToStore, addArticlesToStore } from '../../actions/index'
 
 class Filter extends Component {
   constructor() {
@@ -16,8 +16,18 @@ class Filter extends Component {
     }
   }
 
+  showFavorites = () => {
+    this.props.removeArticlesFromStore()
+    if (localStorage.getItem('favorites')) {
+      this.props.addArticlesToStore(JSON.parse(localStorage.getItem('favorites')))
+    } else {
+      this.props.addArticlesToStore(this.props.favorites)
+    }
+  }
+
   applyFilters = (e) => {
     this.props.removeArticlesFromStore()
+    this.props.addFilterToStore(this.state)
     this.props.fetchSearchedHeadlines(undefined, undefined, this.state)
   }
 
@@ -30,7 +40,10 @@ class Filter extends Component {
     return (
       <aside className="nav">
         <div>
-          <label htmlFor="topicSelect">Topic: </label>
+          <button className="filter-btn" onClick={this.showFavorites}>MY SAVED ARTICLES</button>
+        </div>
+        <div>
+          <label htmlFor="topicSelect">TOPIC: </label>
           <select id="topicSelect" onChange={this.handleSelectChange}>
             <option value="all"></option>
             <option value="education">Education</option>
@@ -45,7 +58,7 @@ class Filter extends Component {
           </select>
         </div>
         <div>
-          <label htmlFor="branchSelect">Branch: </label>
+          <label htmlFor="branchSelect">BRANCH: </label>
           <select id="branchSelect" onChange={this.handleSelectChange}>
             <option value="all"></option>
             <option value="army">Army</option>
@@ -56,7 +69,7 @@ class Filter extends Component {
           </select>
         </div>
         <div>
-          <label htmlFor="sourceSelect">Source: </label>
+          <label htmlFor="sourceSelect">SOURCE: </label>
           <select id="sourceSelect" onChange={this.handleSelectChange}>
             <option value="all"></option>
             {this.props.sources.map((source, index) => {
@@ -65,9 +78,9 @@ class Filter extends Component {
           </select>
         </div>
         <div>
-          <label htmlFor="dateFromSelect">From:</label>
+          <label htmlFor="dateFromSelect">FROM:</label>
           <input type="date" className="date" id="dateFromSelect" onChange={this.handleSelectChange}></input>
-          <label htmlFor="dateToSelect">To:</label>
+          <label htmlFor="dateToSelect">TO:</label>
           <input type="date" className="date" id="dateToSelect" onChange={this.handleSelectChange}></input>
         </div>
         <div>
@@ -79,12 +92,15 @@ class Filter extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  sources: state.sources
+  sources: state.sources,
+  favorites: state.favorites
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSearchedHeadlines: (search, page, filter) => dispatch(fetchSearchedHeadlines(search, page, filter)),
-  removeArticlesFromStore: () => dispatch(removeArticlesFromStore())
+  removeArticlesFromStore: () => dispatch(removeArticlesFromStore()),
+  addFilterToStore: (filter) => dispatch(addFilterToStore(filter)),
+  addArticlesToStore: (articles) => dispatch(addArticlesToStore(articles))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter)
