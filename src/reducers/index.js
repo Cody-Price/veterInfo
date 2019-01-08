@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { isLoading } from './isLoadingReducer'
+import { isLoadingReducer } from './isLoadingReducer'
 import { articlesReducer } from './articlesReducer'
 import { sourcesReducer } from './sourcesReducer'
 import { errorReducer } from './errorReducer'
@@ -8,7 +8,7 @@ import { favoritesReducer } from './favoritesReducer'
 
 const rootReducer = combineReducers(
   {
-    isLoading: isLoading,
+    isLoading: isLoadingReducer,
     articles: articlesReducer,
     sources: sourcesReducer,
     error: errorReducer,

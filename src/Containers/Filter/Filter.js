@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './Filter.scss'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import fetchSearchedHeadlines from '../../thunks/fetchSearchedHeadlines'
 import { removeArticlesFromStore, addFilterToStore, addArticlesToStore } from '../../actions/index'
+import PropTypes from 'prop-types'
 
 class Filter extends Component {
   constructor() {
@@ -40,7 +42,7 @@ class Filter extends Component {
     return (
       <aside className="nav">
         <div>
-          <button className="filter-btn" onClick={this.showFavorites}>MY SAVED ARTICLES</button>
+          <NavLink to='/saved'><button className="filter-btn" onClick={this.showFavorites}>MY SAVED ARTICLES</button></NavLink>
         </div>
         <div>
           <label htmlFor="topicSelect">TOPIC: </label>
@@ -89,6 +91,15 @@ class Filter extends Component {
       </aside>
     )
   }
+}
+
+Filter.propTypes = {
+  sources: PropTypes.array,
+  favorites: PropTypes.array,
+  fetchSearchedHeadlines: PropTypes.func.isRequired,
+  removeArticlesFromStore: PropTypes.func.isRequired,
+  addFilterToStore: PropTypes.func.isRequired,
+  addArticlesToStore: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

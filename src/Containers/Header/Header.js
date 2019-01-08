@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import fetchRecentHeadlines from '../../thunks/fetchRecentHeadlines'
 import fetchSearchedHeadlines from '../../thunks/fetchSearchedHeadlines'
 import { removeArticlesFromStore } from '../../actions/index'
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Header extends Component {
   constructor() {
@@ -56,7 +58,7 @@ class Header extends Component {
       <header className="header">
         <button className="nav-btn nav-left" onClick={this.decrementPage}>PREVIOUS</button>
         <div className="logo-search">
-          <h1 onClick={this.navToHome}><img src={flag} alt="flag" className="flag left-flag" /><span className="red">Veter</span>Informant<img src={flag} alt="flag" className="flag" /></h1>
+          <NavLink to="/"><h1 onClick={this.navToHome}><img src={flag} alt="flag" className="flag left-flag" /><span className="red">Veter</span>Informant<img src={flag} alt="flag" className="flag" /></h1></NavLink>
           <p className="slogan">'Keeping the first ammendment in the hands of those who defended it'</p>
           <div className="search-div">
             <form onSubmit={this.handleSubmit} className="search-form">
@@ -75,6 +77,13 @@ class Header extends Component {
       </header>
     )
   }
+}
+
+Header.propTypes = {
+  filter: PropTypes.object,
+  fetchRecentHeadlines: PropTypes.func.isRequired,
+  removeArticlesFromStore: PropTypes.func.isRequired,
+  fetchSearchedHeadlines: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

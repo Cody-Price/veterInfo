@@ -1,6 +1,6 @@
 import apiKey from '../utilities/apiKey'
 import { isLoading, hasErrored } from '../actions/index'
-import { cleanArticles } from '../utilities/helper/helper'
+import { cleanArticles } from '../utilities/helper'
 import { addArticlesToStore } from '../actions/index'
 
 const fetchRecentHeadlines = (page) => {

@@ -3,10 +3,10 @@ import './Article.scss'
 import militaryPicture from '../../assets/military.jpg'
 import { addFavoriteToStore, removeFavoriteFromStore } from '../../actions/index'
 import { connect } from 'react-redux'
-
+import PropTypes from 'prop-types'
 
 const Article = (props) => {
-  const saveArticle = async () => {
+  const saveArticle = () => {
     if (props.article.favorite === false) {
       props.article.favorite = true
       props.addFavoriteToStore(article)
@@ -17,8 +17,6 @@ const Article = (props) => {
       localStorage.setItem('favorites', JSON.stringify(props.favorites))
     }
   } 
-
-
 
   let savedTrue = 'favorite-btn saved'
   let savedFalse = 'favorite-btn'
@@ -40,6 +38,12 @@ const Article = (props) => {
       <button className={article.favorite ? savedTrue : savedFalse} onClick={saveArticle}>{article.favorite ? 'SAVED' : 'SAVE'}</button>
     </div>
   )
+}
+
+Article.propTypes = {
+  favorites: PropTypes.array,
+  addFavoriteToStore: PropTypes.func.isRequired,
+  removeFavoriteFromStore: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
