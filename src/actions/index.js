@@ -39,6 +39,12 @@ export const addFilterToStore = (filter) => {
   }
 }
 
+export const clearFilterFromStore = () => {
+  return {
+    type: 'CLEAR_FILTER_FROM_STORE',
+  }
+}
+
 export const addFavoriteToStore = (favorite) => {
   return {
     type: 'ADD_FAVORITE_TO_STORE',

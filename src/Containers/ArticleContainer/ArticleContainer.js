@@ -2,9 +2,18 @@ import React from 'react'
 import './ArticleContainer.scss'
 import { connect } from 'react-redux'
 import Article from '../Article/Article'
+import fetchRecentHeadlines from '../../thunks/fetchRecentHeadlines'
+import PropTypes from 'prop-types'
 
 const ArticleContainer = (props) => {
-  const displayedArticles = props.articles.map(article => {
+  let articlesForIteration
+	if (props.match.path === '/saved') {
+    articlesForIteration = props.favorites
+	} else {
+    articlesForIteration = props.articles
+  }
+  
+  const displayedArticles = articlesForIteration.map(article => {
     return <Article article={article} key={article.title} />
   })
 
@@ -29,9 +38,21 @@ const ArticleContainer = (props) => {
   }
 }
 
+ArticleContainer.propTypes = {
+  articles: PropTypes.array,
+  isLoading: PropTypes.bool,
+  favorites: PropTypes.array,
+  fetchRecentHeadlines: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => ({
   articles: state.articles,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  favorites: state.favorites
 })
 
-export default connect(mapStateToProps)(ArticleContainer)
+const mapDispatchToProps = (dispatch) => ({
+  fetchRecentHeadlines: () => dispatch(fetchRecentHeadlines())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleContainer)
