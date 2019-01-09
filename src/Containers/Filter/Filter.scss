@@ -2,25 +2,45 @@
   height: 99.5vh;
   position: fixed;
   border: #172353 solid 2px;
-  width: 15vw;
+  width: 14.7vw;
   background-color: #172353;
-  border-right: 2px solid black;
+  opacity: 0.9;
+  border-right: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.541)
 }
 
 label {
   color: white;
   display: block;
   text-align: left;
+  margin: 3px 0;
+}
+
+select {
+  transition-duration: 0.3s;
+  background-color: rgb(180, 180, 180);
+
+  &:hover {
+    background-color: white;
+    transition-duration: 0.3s;
+  }
 }
 
 .date {
   border-radius: 5px;
   width: 175px;
+  background-color: rgb(180, 180, 180);
+  transition-duration: 0.3s;
+
+  &:hover {
+    transition-duration: 0.3s;
+    background-color: white;
+  }
 }
 
 .filter-btn {
@@ -30,6 +50,7 @@ label {
   width: 175px;
   font-size: 14px;
   font-weight: bold;
+  color: black;
 
   &:hover {
     background-color: #4b9bff;
