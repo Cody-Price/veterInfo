@@ -5,7 +5,7 @@ import { addFavoriteToStore, removeFavoriteFromStore } from '../../actions/index
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-const Article = (props) => {
+export const Article = (props) => {
   const saveArticle = () => {
     if (props.article.favorite === false) {
       props.article.favorite = true
@@ -46,11 +46,11 @@ Article.propTypes = {
   removeFavoriteFromStore: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addFavoriteToStore: (favorite) => dispatch(addFavoriteToStore(favorite)),
   removeFavoriteFromStore: (favorite) => dispatch(removeFavoriteFromStore(favorite))
 })

@@ -8,9 +8,6 @@ import fetchRecentHeadlines from '../../thunks/fetchRecentHeadlines'
 import fetchSources from '../../thunks/fetchSources'
 configure({ adapter: new Adapter() })
 
-jest.mock('../../thunks/fetchRecentHeadlines')
-jest.mock('../../thunks/fetchSources')
-
 describe('App', () => {
   let wrapper
   let mockDispatch
@@ -24,20 +21,23 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('componentDidMount', () => {
-    
-    it('should call fetchRecentHeadlines', () => {
-      const actionToDispatch = fetchRecentHeadlines()
-			const result = mapDispatchToProps(mockDispatch)
-      result.fetchRecentHeadlines()
-			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  describe('mapDispatchToProps', () => {
+    it('calls dispatch with a fetchRecentHeadlines thunk when componentDidMount is called', () => {
+      const mockDispatch = jest.fn()
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.fetchRecentHeadlines()
+
+      expect(mockDispatch).toHaveBeenCalled()
     })
 
-    it('should call fetchSources', () => {
-      const actionToDispatch = fetchSources()
-			const result = mapDispatchToProps(mockDispatch)
-			result.fetchSources()
-			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    it('calls dispatch with a fetchSources thunk when componentDidMount is called', () => {
+      const mockDispatch = jest.fn()
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.fetchSources()
+
+      expect(mockDispatch).toHaveBeenCalled()
     })
   })
 })
