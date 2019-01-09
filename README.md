@@ -31,6 +31,8 @@ In the movie-tracker directory, you can run the test files using:
 
 ##### Wireframe:
 
+![0](https://user-images.githubusercontent.com/40974490/50878443-fb5ff180-1393-11e9-9768-686e769f585a.jpg)
+
 <img width="774" alt="screen shot 2019-01-08 at 10 10 36 pm" src="https://user-images.githubusercontent.com/40974490/50878110-4d077c80-1392-11e9-99e7-f52d3ea666db.png">
 
 ##### The App at the moment:
