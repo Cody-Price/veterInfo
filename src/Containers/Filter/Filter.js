@@ -6,7 +6,7 @@ import fetchSearchedHeadlines from '../../thunks/fetchSearchedHeadlines'
 import { removeArticlesFromStore, addFilterToStore, addArticlesToStore } from '../../actions/index'
 import PropTypes from 'prop-types'
 
-class Filter extends Component {
+export class Filter extends Component {
   constructor() {
     super()
     this.state = {
@@ -102,12 +102,12 @@ Filter.propTypes = {
   addArticlesToStore: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   sources: state.sources,
   favorites: state.favorites
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   fetchSearchedHeadlines: (search, page, filter) => dispatch(fetchSearchedHeadlines(search, page, filter)),
   removeArticlesFromStore: () => dispatch(removeArticlesFromStore()),
   addFilterToStore: (filter) => dispatch(addFilterToStore(filter)),

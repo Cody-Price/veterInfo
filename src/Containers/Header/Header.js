@@ -8,7 +8,7 @@ import { removeArticlesFromStore } from '../../actions/index'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-class Header extends Component {
+export class Header extends Component {
   constructor() {
     super()
     this.state = {
@@ -86,11 +86,11 @@ Header.propTypes = {
   fetchSearchedHeadlines: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   filter: state.filter
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   fetchRecentHeadlines: (page) => dispatch(fetchRecentHeadlines(page)),
   removeArticlesFromStore: () => dispatch(removeArticlesFromStore()),
   fetchSearchedHeadlines: (search, page, filter) => dispatch(fetchSearchedHeadlines(search, page, filter))
