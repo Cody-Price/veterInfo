@@ -27,11 +27,11 @@ export const Article = (props) => {
         <article>
           <img src={article.imagePath || militaryPicture} alt={article.description} className="article-image" />
           <div className="content">
-            <h3 className="article-line">{article.title}</h3>
-            <h5 className="article-line">{article.author ? `By:  ${article.author}` : null}</h5>
-            <p className="article-line">{article.content || article.description}</p>
-            <p className="article-line">{article.date}</p>
-            <p className="article-line">{article.source}</p>
+            <h3 className="article-line" id="article-title">{article.title}</h3>
+            <h5 className="article-line" id="line-1">{article.author ? `By:  ${article.author}` : null}</h5>
+            <p className="article-line" id="line-2">{article.content || article.description}</p>
+            <p className="article-line" id="line-3">{article.date}</p>
+            <p className="article-line" id="line-4">{article.source}</p>
           </div>
         </article>
       </a>

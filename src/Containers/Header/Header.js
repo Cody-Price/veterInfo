@@ -54,12 +54,13 @@ export class Header extends Component {
   }
 
   render() {
+    const greyBackground = 'grey nav-btn nav-left'
+    const whiteBackground = 'nav-btn nav-left'
     return (
       <header className="header">
-        <button className="nav-btn nav-left" onClick={this.decrementPage}>PREVIOUS</button>
+        <button className={this.state.pageNumber === 1 ? greyBackground : whiteBackground} onClick={this.decrementPage}>PREVIOUS</button>
         <div className="logo-search">
-          <NavLink to="/"><h1 onClick={this.navToHome}><img src={flag} alt="flag" className="flag left-flag" /><span className="red">Veter</span>Informant<img src={flag} alt="flag" className="flag" /></h1></NavLink>
-          <p className="slogan">'Keeping the first ammendment in the hands of those who defended it'</p>
+          <NavLink to="/"><h1 onClick={this.navToHome}><span className="red">Veter</span>Informant</h1></NavLink>
           <div className="search-div">
             <form onSubmit={this.handleSubmit} className="search-form">
               <input
@@ -81,9 +82,9 @@ export class Header extends Component {
 
 Header.propTypes = {
   filter: PropTypes.object,
-  fetchRecentHeadlines: PropTypes.func.isRequired,
-  removeArticlesFromStore: PropTypes.func.isRequired,
-  fetchSearchedHeadlines: PropTypes.func.isRequired
+  fetchRecentHeadlines: PropTypes.func,
+  removeArticlesFromStore: PropTypes.func,
+  fetchSearchedHeadlines: PropTypes.func
 }
 
 export const mapStateToProps = (state) => ({

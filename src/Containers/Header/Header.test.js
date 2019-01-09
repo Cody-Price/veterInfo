@@ -1,11 +1,10 @@
-import Header from './Header'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import fetchRecentHeadlines from '../../thunks/fetchRecentHeadlines'
 import fetchSources from '../../thunks/fetchSources'
-import { mapStateToProps, mapDispatchToProps } from './Header'
+import { mapStateToProps, mapDispatchToProps, Header } from './Header'
 import { removeArticlesFromStore } from '../../actions/index'
 configure({ adapter: new Adapter() }) 
 
@@ -21,11 +20,12 @@ describe('App', () => {
   })
 
   describe.skip('handleSubmit', () => {
-    const preventDefault = jest.fn()
-    const mockEvent = {preventDefault}
-
-    wrapper.instance().handleSubmit(mockEvent)
-
+    it('should call handleSubmit on form submit', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'handleSubmit')
+      wrapper.instance().forceUpdate()
+      wrapper.find('form').simulate('submit')
+      expect(spy).toHaveBeenCalled()
+    })
   })
 
   describe('mapStateToProps', () => {
