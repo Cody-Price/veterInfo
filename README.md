@@ -42,10 +42,5 @@ In the movie-tracker directory, you can run the test files using:
 
 <img width="774" alt="screen shot 2019-01-08 at 10 10 36 pm" src="https://user-images.githubusercontent.com/40974490/50878110-4d077c80-1392-11e9-99e7-f52d3ea666db.png">
 
-##### The App at the moment:
-
-<img width="1438" alt="screen shot 2019-01-08 at 9 59 50 pm" src="https://user-images.githubusercontent.com/40974490/50877896-37de1e00-1391-11e9-837d-e3950a5eb41c.png">
-<img width="1440" alt="screen shot 2019-01-08 at 10 02 07 pm" src="https://user-images.githubusercontent.com/40974490/50877906-44627680-1391-11e9-90bb-5d4c3ec5d74c.png">
-
 #### Contributors
 * Cody Price: https://github.com/cody-price
