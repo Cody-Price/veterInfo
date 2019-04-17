@@ -2,6 +2,13 @@
 
 VeterInformant was a project that I took on as part of a binary challenge (two names drawn out of a hat, one was a demographic and the other was an api). I happened to be lucky enough to get veterans (I am one) and the news API. Immediately I knew I wanted to create an application that could show veterans the news as it applied to them. This is my first agile iteration on the project and cannot wait to polish this over time into something that could be of real value to the community one day!
 
+#### Demo: 
+
+<a href="https://imgflip.com/gif/2ytq8g"><img src="https://i.imgflip.com/2ytq8g.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2ytr2q"><img src="https://i.imgflip.com/2ytr2q.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2ytrm1"><img src="https://i.imgflip.com/2ytrm1.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2ytrug"><img src="https://i.imgflip.com/2ytrug.gif" title="made at imgflip.com"/></a>
+
 ### Technologies used:
 * React
 * Redux
