@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- node
+services:
+- postgresql
+before_script:
+- psql -c 'CREATE DATABASE users;' -U postgres
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: bVQxWbdngbiBNRVl1EThjt3ONUPrMwJ2F22MXMQHha4LUr8Yy4yEsyKD0opBXmFCdP3Ys+z99LLr9ek9GTfozPIfQt7YiLaglqHTLlgXwHNkiQSPzDumtENGETwHNWeSmmdx86l9UhY6tmVglTpH8pYmZOPKLcFYRM9wDG+QgbNacbJz6Ou/xWfcaQIPCMOGr4NvdNtFXoHDzBMk1IyW9LUMOFMEZOCvqpe/m0zalkNNisusB6t1wN6KjOR8wzmDaztzu/38NewdeK0/qyGMpAYlf3LBwHTvTJgnLtKTb3V0OF8ZKae4TbFMisWijKlMNANYO1jHaToN0L2uo+9A3t0yU3LTJUUVfzOEVMVhrknRUxpJFGiKnXzU8Vc6H3DTSaBrjbdocu/83gwQx2xjFnd4pHLVG1gZ1XBE4+ihta87ZuUz2IlJbNjVpkTpbCeezlTG5y9Ej/8xdqDeKcr1/qUGtXnjQBBCDfKV5gm7eXMitX+bI1Th1lvx/fQBQBJEUrNmsOJgCOEN/oWpIT6cPGL4vAfxsGJYnwbqzZKCDFMRPnMbcRvXxHcLfvw29EGxm2bdOgTY2rvMzVr8dQg/A0XTNsMFl2yHMr6SEFt1LDmtUt3aCtVck8LdDzlNpBws9ZWsHXG0rdweI4kn94sdvWlsS9PQvYGsnycPotG8xl8=
+  app: veterinformant
+  skip_cleanup: true
+scripts:
+  start: node server.js
+  test: NODE_ENV=test jest --exit
