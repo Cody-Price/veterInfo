@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ErrorPage from './components/ErrorPage/ErrorPage'
+import './containers/Article/Article'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -20,7 +20,7 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 // 	</Provider>
 // )
 
-ReactDOM.render(ErrorPage, document.getElementById('root'));
+ReactDOM.render(Article, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
