@@ -6,6 +6,8 @@ export const favoritesReducer = (state = [], action) => {
       return state.filter(article => {
         if (article.title !== action.favorite.title) {
           return article
+        } else {
+          return
         }
       })
     default:
