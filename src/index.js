@@ -12,15 +12,15 @@ import thunk from 'redux-thunk'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
-const router = (
-	<Provider store={store}>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</Provider>
-)
+// const router = (
+// 	<Provider store={store}>
+// 		<BrowserRouter>
+// 			<App />
+// 		</BrowserRouter>
+// 	</Provider>
+// )
 
-ReactDOM.render(router, document.getElementById('root'));
+ReactDOM.render(App, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
