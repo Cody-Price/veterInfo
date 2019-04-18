@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default Test = () => {
+const Test = () => {
   return (
     <div>
-      hello world
+      <p style="color: black;">hello world</p>
     </div>
   )
 }
+
+export default Test
