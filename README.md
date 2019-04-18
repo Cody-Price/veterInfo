@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Cody-Price/veterInformant.svg?branch=master)](https://travis-ci.org/Cody-Price/veterInformant)
+
 # VeterInformant
 
 VeterInformant is an application built to provide a means for veterans to view and search for relevant news articles that apply to them and those they care about from the Public News API.
