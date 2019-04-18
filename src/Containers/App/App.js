@@ -36,7 +36,7 @@ App.propTypes = {
   fetchSources: PropTypes.func.isRequired
 }
 
-export const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchRecentHeadlines: () => dispatch(fetchRecentHeadlines()),
   fetchSources: () => dispatch(fetchSources())
 })

@@ -8,7 +8,7 @@ import fetchRecentHeadlines from '../../thunks/fetchRecentHeadlines'
 import fetchSources from '../../thunks/fetchSources'
 configure({ adapter: new Adapter() })
 
-describe('App', () => {
+describe.skip('App', () => {
   let wrapper
   let mockDispatch
 
