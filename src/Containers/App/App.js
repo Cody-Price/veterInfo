@@ -10,7 +10,7 @@ import ErrorPage from '../../components/ErrorPage/ErrorPage'
 import PropTypes from 'prop-types'
 import './App.scss'
 
-export class App extends Component {
+class App extends Component {
   componentDidMount() {
     this.props.fetchRecentHeadlines()
     this.props.fetchSources()
