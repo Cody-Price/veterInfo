@@ -5,6 +5,7 @@
   "dependencies": {
     "node": "^11.13.0",
     "node-sass": "^4.11.0",
+    "npm": "^6.9.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
