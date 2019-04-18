@@ -1,4 +1,4 @@
-TravisCI/Heroku: [![Build Status](https://travis-ci.org/Cody-Price/veterInformant.svg?branch=master)](https://travis-ci.org/Cody-Price/veterInformant)
+[![Build Status](https://travis-ci.org/Cody-Price/veterInformant.svg?branch=master)](https://travis-ci.org/Cody-Price/veterInformant)
 
 # VeterInformant
 
