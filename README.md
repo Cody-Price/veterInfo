@@ -53,7 +53,7 @@ This will open up your default browser and run the application on localhost:3000
 
 ### Deployment
 
-This application is not yet in the deployment phase, however if you would like to contribute, please see the <a href="#contributing">Contributing</a> section.
+This application is currently deployed via [TravisCI](https://travis-ci.org/) to [Heroku](https://www.heroku.com/) and is located at [http://veterinformant.herokuapp.com/](http://veterinformant.herokuapp.com/)
 
 ### Built With
 
